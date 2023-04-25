@@ -1,10 +1,10 @@
-name: Open Journals Publishing Artifacts
-description: Create PDF and XML files for an Open Journals paper
+name: NeuroLibre Summary PDF Actions
+description: Create PDF and XML files for a NeuroLibre preprint
 inputs:
   journal:
-    description: Target journal, must be either "joss" or "jose"
+    description: Target journal, set to "neurolibre"
     required: false
-    default: joss
+    default: neurolibre
   paper-path:
     description: >-
         Path to the main paper Markdown file, relative to the
@@ -13,7 +13,7 @@ inputs:
     default: 'paper.md'
   args:
     description: |
-      Arguments to be passed to the openjournals/inara
+      Arguments to be passed to the neurolibre/inara
       Options:
         -m ARTICLE_INFO_FILE    path to the article's metadata info file
         -o OUTPUT_FORMATS       output formats (html/pdf/jats/crossref)
@@ -21,7 +21,7 @@ inputs:
     default: ''
 runs:
   using: docker
-  image: 'docker://openjournals/inara:latest'
+  image: 'docker://neurolibre/inara:latest'
   env:
     GIT_SHA: $GITHUB_SHA
     JOURNAL: ${{ inputs.journal }}
@@ -30,4 +30,4 @@ runs:
     - ${{ inputs.paper-path }}
 branding:
   icon: file-text
-  color: blue
+  color: red
