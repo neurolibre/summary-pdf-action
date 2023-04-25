@@ -1,6 +1,6 @@
-# Open Journals Publishing Artifacts
+# NeuroLibre summary PDF action
 
-Create PDF, Crossref XML and JATS files for an Open Journals article.
+Create PDF, Crossref XML and JATS files for a NeuroLibre preprint.
 
 ## Usage
 
@@ -17,9 +17,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build draft PDF
-        uses: xuanxu/publishing-artifacts@main
+        uses: neurolibre/summary-pdf-action@main
         with:
-          journal: joss
+          journal: neurolibre
           # This should be the path to the paper within your repo.
           paper-path: paper.md
       - name: Upload
@@ -42,8 +42,7 @@ The build can be configured by setting the following inputs.
 
 ### `journal`
 
-The journal for to which this paper will be submitted. May be
-either `joss` or `jose`. Defaults to `joss`.
+Defaults to `neurolibre` (only option).
 
 ### `paper-path`
 
@@ -58,5 +57,5 @@ Options:
 ```
 -m ARTICLE_INFO_FILE    path to the article's metadata info file
 
--o OUTPUT_FORMATS       output formats (html/pdf/jats). Defaults to pdf & jats
+-o OUTPUT_FORMATS       output formats (html/neurolibre/jats). Defaults to neurolibre & jats
 ```
